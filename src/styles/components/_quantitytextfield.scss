@@ -1,0 +1,57 @@
+.input__quantity {
+  width: 100%;
+  max-width: 100%;
+  @include flex(space-between, center);
+  outline: solid 0.5px $border-color;
+  overflow: hidden;
+  &.sm {
+    .input__quantity-button {
+      height: 3rem;
+      font-size: 1.6rem;
+    }
+    .input__quantity-input {
+      font-size: 1.4rem;
+      height: 3rem;
+    }
+  }
+  &.md {
+    .input__quantity-button {
+      height: 5rem;
+      font-size: 2rem;
+    }
+    .input__quantity-input {
+      height: 5rem;
+      font-size: 1.6rem;
+    }
+  }
+  &-button {
+    &:nth-child(1) {
+      padding-left: 0.5rem;
+    }
+    &:nth-child(2) {
+      padding-right: 0.5rem;
+    }
+    @include flex(center, center);
+    width: 25%;
+    background-color: white;
+    color: $text-old-price;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $text-primary;
+    }
+  }
+  &-input {
+    padding: 0 0.5rem;
+    width: 50%;
+    outline: none;
+    border: none;
+    text-align: center;
+    @include text(null, 600, $text-primary);
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

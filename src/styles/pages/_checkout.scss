@@ -1,0 +1,271 @@
+.checkout {
+  // &__logo {
+  //     background-color: $header-bg;
+  //     @include flex(center, center);
+  //     line-height: 3;
+  //     padding: 1rem 5%;
+  //     @include respond(large-desktop) {
+  //         // width: 30rem;
+  //         @include flex(left, center);
+  //         padding: 1rem 5%;
+  //     }
+  // }
+  &__product-accordion {
+    display: block;
+    @include respond(desktop) {
+      display: none;
+    }
+    .product-accordion--list {
+      .accordion--list-header {
+        .header--title {
+          @include flex(center, center, null, null);
+        }
+      }
+      .accordion__panel {
+        height: auto !important;
+      }
+    }
+  }
+  &__information {
+    @include flex(center, null, row, null);
+    .information__user {
+      width: 100%;
+      background-color: white;
+      color: $color-black;
+      padding: 3rem 5%;
+      color: $color-white;
+      @include respond(desktop) {
+        width: 55%;
+      }
+      .user__contact {
+        .contact__information {
+          .information__header {
+            @include flex(space-between, center, null, null);
+            h3 {
+              @include text(1.6rem, 400, $color-black, null);
+            }
+            p {
+              @include text(1.2rem, 400, $color-black, null);
+              span {
+                text-decoration: underline;
+                cursor: pointer;
+                color: rgb(117, 193, 228);
+                transition: all 0.3s;
+                &:hover {
+                  color: rgb(175, 217, 240);
+                }
+              }
+            }
+            button {
+              width: 50%;
+              border: none;
+            }
+          }
+          .information__textField {
+            margin: 1rem 0px;
+            .textField {
+              margin-bottom: 2rem;
+              input {
+                border: 1px rgb(0, 0, 0) solid;
+              }
+            }
+          }
+        }
+        .contact__address {
+          margin: 1rem 0px;
+          .address__header {
+            margin-bottom: 1rem;
+            h3 {
+              @include text(1.6rem, 400, $color-black, null);
+            }
+          }
+          .address__textField {
+            .textField {
+              margin-bottom: 2rem;
+              input {
+                border: 1px rgb(0, 0, 0) solid;
+              }
+              select {
+                width: 100%;
+                height: 4.5rem;
+              }
+            }
+            .textField--country {
+              select {
+                padding-left: 1rem;
+              }
+            }
+            .textField--select {
+              @include flex(space-between, center, null, null);
+              .select {
+                margin-bottom: 2rem;
+                width: 33.33%;
+                margin-right: 2rem;
+                select {
+                  width: 100%;
+                  height: 4.5rem;
+                  padding-left: 1rem;
+                  border: 1px rgb(0, 0, 0) solid;
+                  border-radius: 0.5rem;
+                }
+              }
+              .textField--ward {
+                margin-right: 0px;
+              }
+            }
+            .textField--AvailableServices {
+              select {
+                width: 100%;
+                padding: 1.4rem 1rem;
+                border: 1px #000 solid;
+                border-radius: 0.5rem;
+              }
+              margin-bottom: 2rem;
+            }
+            .textField--remenber {
+              @include flex(flex-start, center, null, null);
+              @include text(1.3rem, 400, $color-black, null);
+              label {
+                margin-left: 2rem;
+              }
+            }
+          }
+        }
+        .contact__payment {
+          .payment__header {
+            margin-bottom: 1rem;
+            h3 {
+              @include text(1.6rem, 400, $color-black, null);
+            }
+          }
+          .payment__select {
+            .select {
+              @include flex(flex-0start, center, null, null);
+              margin-bottom: 2rem;
+              input {
+                width: 2rem;
+                height: 2rem;
+                margin-right: 2rem;
+              }
+              label {
+                @include text(1.6rem, 400, $color-black, null);
+              }
+            }
+          }
+        }
+        .contact__nav {
+          margin-bottom: 1rem;
+          .nav__button {
+            @include flex(space-between, center, null, null);
+            .button {
+              button {
+                border-radius: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .information__product {
+      display: none;
+      background-color: rgb(241, 241, 241) !important;
+      @include respond(desktop) {
+        width: 45%;
+        display: block;
+      }
+    }
+  }
+}
+
+// product checkout
+.productCheckout {
+  @include respond(desktop) {
+    padding: 4rem 0 2rem 3rem;
+    width: 90%;
+  }
+  &__summary {
+    max-height: 550px;
+    padding-top: 2rem;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .summary__item {
+      @include flex(space-between, center, null, null);
+      margin-bottom: 1rem;
+      .item__detail {
+        @include flex(flex-start, center, null, null);
+        .detail--image {
+          position: relative;
+          img {
+            border: 1px rgb(183, 183, 183) solid;
+            border-radius: 5px;
+          }
+          .quantity {
+            @include position(absolute, -0.6rem, -1rem, null, null);
+            background-color: rgb(120, 120, 120);
+            @include text(1rem, 400, $color-white, 2rem);
+            text-align: center;
+            width: 2rem;
+            border-radius: 50%;
+            // height: 20px;
+          }
+        }
+        .detail--information {
+          padding-left: 2rem;
+          .information--name {
+            @include text(1.4rem, 400, $color-black, null);
+          }
+          .information--style {
+            @include text(1.2rem, 400, $color-gray, null);
+          }
+        }
+      }
+      .item__price {
+        @include text(1.4rem, 400, $color-black, null);
+      }
+    }
+  }
+  &__discount {
+    @include flex(space-between, center, null, null);
+    padding-top: 1rem;
+    .discount--field {
+      width: 80%;
+      input {
+        border: 0.5px rgb(160, 160, 160) solid;
+        border-radius: 5px;
+      }
+    }
+    .discount--button {
+      width: 15%;
+      button {
+        padding: 0px !important;
+      }
+    }
+  }
+  &__price {
+    .price {
+      @include flex(space-between, center, null, null);
+      margin: 1rem 0px;
+      @include text(1.4rem, 350, $color-black, null);
+    }
+    .price--discount {
+      .discount__price {
+        svg {
+          padding-top: 0.5rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .price--total {
+      @include text(1.6rem, 450, $color-black, null);
+      .total__price {
+        span {
+          @include text(1.4rem, 350, $color-black, null);
+        }
+      }
+    }
+  }
+}

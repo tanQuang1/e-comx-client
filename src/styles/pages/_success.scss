@@ -1,0 +1,42 @@
+.success-payment {
+    text-align: center;
+    &__time {
+        margin-top: 10rem;
+        span {
+            @include text(15rem, 500, rgb(53, 183, 41));
+            // padding: 0px 5rem;
+            display: inline-block;
+            width: 20rem;
+            height: 20rem;
+            line-height: 20rem;
+            border: 0.5rem rgb(53, 183, 41) solid;
+            border-radius: 50%;
+        }
+        span.changed {
+            transform: translate(-50%, -50%);
+        }
+    }
+    &__content {
+        h1 {
+            @include text(6.4rem, 400, rgb(53, 183, 41));
+        }
+        h5 {
+            @include text(6.4rem, null, rgb(101, 101, 101));
+        }
+        p {
+            @include text(1.3rem, null, rgb(125, 125, 125));
+        }
+        a {
+            margin-top: 1.2rem;
+            @include text(2rem, null, $text-primary);
+            transition: color 0.2s linear;
+            @include flex(center, center);
+            svg {
+                margin-right: 8px;
+            }
+        }
+        a:hover {
+            color: $text-primary-hover;
+        }
+    }
+}

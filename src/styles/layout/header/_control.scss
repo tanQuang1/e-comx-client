@@ -1,0 +1,56 @@
+.header__control {
+  & > li:first-child {
+    padding-left: 0;
+  }
+  & > li {
+    list-style: none;
+    padding-right: 1rem;
+    vertical-align: bottom;
+  }
+  & > li:last-child {
+    padding: 0;
+    margin: 0;
+  }
+}
+.control {
+  &__shopping--icon {
+    margin-right: 1rem;
+  }
+  &__heart--icon,
+  &__account--icon {
+    display: none;
+    @include respond(tablet) {
+      display: inline-block;
+      @include flex(center, center);
+    }
+  }
+  &__icon {
+    position: relative;
+  }
+  &__link {
+    color: #fff;
+    display: flex;
+    @include flex(flex-start, center);
+    justify-content: space-between;
+  }
+  &__text {
+    font-size: 0;
+    padding-left: 1rem;
+    @include respond(large-desktop) {
+      font-size: 1.4rem;
+      // display: block;
+      // line-height: 1;
+      margin-bottom: 3px;
+    }
+    & > span {
+      display: block;
+    }
+  }
+  &__text--1 {
+    color: #a3afef;
+    margin-bottom: 3px;
+  }
+  &__display {
+    font-size: 1.3rem;
+  }
+}

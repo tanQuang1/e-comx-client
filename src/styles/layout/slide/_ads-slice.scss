@@ -1,0 +1,69 @@
+.adsSlide {
+  padding: 3rem 0;
+  background-color: $button-quaternary-bg;
+  .swiper {
+    &-slide {
+      display: flex;
+      align-items: center;
+    }
+    position: relative;
+    @include box(100%, 100%);
+    img {
+      object-fit: cover;
+      @include respond(large-desktop) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-pagination-bullet {
+      background-color: $color-white;
+      &-active {
+        width: 4rem;
+        border-radius: 1rem;
+      }
+    }
+  }
+  &-caption {
+    padding: 2rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    @include box(54rem, 34rem);
+    @include text(2.2rem, 400, $color-white, 3rem);
+    @include respond(large-mobile) {
+      @include text(3rem, 400, $color-white, 3.2rem);
+      align-items: center;
+      text-align: center;
+    }
+    @include respond(tablet) {
+      @include text(3rem, 400, $color-white, 3rem);
+    }
+    @include respond(large-desktop) {
+      // left: 6.5rem;
+      left: 14vw;
+      padding: 2rem 0 2rem 0;
+      @include text(4rem, 400, $color-white, 5rem);
+    }
+
+    &-title {
+      margin-bottom: 3rem;
+      display: block;
+      max-width: 9rem;
+      line-height: 13px;
+      font-size: 13px;
+      color: #222222;
+      padding: 6px 13px 6px 13px;
+      border-radius: 2px 2px;
+      font-weight: 500;
+      background-color: $text-color-active;
+    }
+    button {
+      margin-top: 2.5rem;
+      @include box(20rem, 3.4rem);
+      @include respond(large-desktop) {
+        margin-top: 3rem;
+        @include box(20rem, 5.4rem);
+      }
+    }
+  }
+}

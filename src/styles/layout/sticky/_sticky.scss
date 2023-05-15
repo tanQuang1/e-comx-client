@@ -1,0 +1,32 @@
+.sticky-mobile {
+  width: 100%;
+  position: fixed;
+  display: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 12px #0000001f;
+  display: block;
+  border-radius: 2rem 2rem 0 0;
+  overflow: hidden;
+  z-index: 2;
+  background-color: $color-white;
+  &.open {
+    display: block;
+  }
+  @include respond(desktop) {
+    display: none;
+  }
+  @include respond(large-desktop) {
+    display: none;
+  }
+  ul {
+    padding: 2.1rem 1rem 1.4rem;
+    @include flex(space-around, center);
+    li {
+      font-size: 2rem;
+      color: $text-secondary;
+      position: relative;
+    }
+  }
+}

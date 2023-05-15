@@ -1,0 +1,306 @@
+.page__product {
+  font-size: 1.4rem;
+  max-width: $max-width;
+  margin: 0 auto;
+  width: 100%;
+  // MAIN CONTENT
+  .main--content {
+    width: 100%;
+    margin: 7rem auto;
+    display: flex;
+    position: relative;
+    //SIDEBAR
+    .mask--overlay {
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background-color: #000000b3;
+      &.overlay--open {
+        pointer-events: auto;
+        opacity: 1;
+        display: block;
+        visibility: visible;
+        transition: opacity 0.25s, visibility;
+      }
+    }
+    .side-bar {
+      transform: translate(-100%);
+      display: none;
+      transition: all 0.2s ease-in-out 0s;
+      min-width: 30rem;
+      height: 100%;
+      background-color: #fff;
+      @include respond(large-desktop) {
+        display: block;
+        transform: translate(0);
+        width: 30rem;
+      }
+      &.open {
+        display: block;
+        top: 0;
+        z-index: 6;
+        position: fixed;
+        left: 0;
+        transform: translate(0);
+      }
+      .title--sidebar {
+        @include text(1.3rem, 500, $color-white, 6rem);
+        background-color: $color-black;
+        text-transform: uppercase;
+        padding: 0 1.5rem;
+        @include flex(space-between, center);
+        @include respond(large-desktop) {
+          // margin: -1.6rem -1.5rem 0;
+          display: none;
+        }
+      }
+      &__container {
+        overflow: auto;
+        height: 100%;
+        padding: 1.5rem 1.5rem 5rem;
+        .filter__box {
+          margin-bottom: 2rem;
+          padding: 1.5rem;
+          border: 1px solid #ebebeb;
+          border-radius: 3px;
+          .filter--heading {
+            @include text(1.8rem, 500, $color-black, 1);
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #ebebeb;
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: -2px;
+              width: 6rem;
+              border-bottom: 2px solid #fcbe00;
+            }
+          }
+          .category-checkbox {
+            margin-bottom: 1.2rem;
+            .category__name {
+              text-transform: uppercase;
+              font-size: 900;
+              margin-bottom: 1.2rem;
+            }
+            .collection-filters {
+              .input-checkbox {
+                margin-left: 4rem;
+                margin-bottom: 0.8rem;
+              }
+            }
+          }
+          .collection-filters {
+            .input-checkbox {
+              margin-bottom: 0.8rem;
+              .link {
+                @include flex(normal, center);
+                @include text(1.4rem, 400, $text-secondary);
+                .filter-icon {
+                  @include text(1rem, 400, $color-white);
+                  border: 1px solid #d8d8d8;
+                  border-radius: 100%;
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  align-items: center;
+                  justify-content: center;
+                  display: inline-flex;
+                  margin-right: 1rem;
+                  svg {
+                    font-size: 1.5rem;
+                  }
+                }
+                &.active {
+                  .filter-icon {
+                    border: 1px solid #fcbe00;
+                    color: #fcbe00;
+                  }
+                  .filter-title {
+                    color: #fcbe00;
+                  }
+                }
+              }
+              &:hover {
+                .filter-title {
+                  color: $text-color-active;
+                  transition: all ease-out 0.3s;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //CONTENT
+    .content--box {
+      position: relative;
+      padding: 0 1.5rem;
+      flex: 1;
+      padding: 1.3rem 2rem;
+      width: 100%;
+      .hero--box {
+        .hero--heading {
+          margin: 0 0 30px;
+          @include text(2.4rem, 400, $color-black, 1.1);
+          text-transform: capitalize;
+          letter-spacing: -0.5px;
+        }
+      }
+      //CONTROL
+      .control__box {
+        background-color: $color-white;
+        border: 1px solid #ebebeb;
+        position: relative;
+        width: 100%;
+        @include flex(space-between, center);
+        .filter__box {
+          @include flex(space-between, center);
+          min-width: 10rem;
+          @include respond(tablet) {
+            min-width: 30rem;
+          }
+          @include respond(desktop) {
+            min-width: 29rem;
+          }
+          @include respond(large-desktop) {
+            min-width: fit-content;
+          }
+
+          .filter__button {
+            line-height: 0;
+            font-size: 1.2rem;
+            max-width: 10rem;
+            @include flex(center, center);
+            span {
+              display: inline-block;
+            }
+            @include respond(large-desktop) {
+              display: none;
+            }
+          }
+          .product-result-count {
+            display: none;
+            margin-left: 1.5rem;
+
+            @include respond(tablet) {
+              display: inline-block;
+            }
+            @include respond(desktop) {
+              display: inline-block;
+            }
+            @include respond(large-desktop) {
+              display: inline-block;
+            }
+          }
+        }
+        .control__button {
+          .btn {
+            display: none;
+            align-items: center;
+            text-align: center;
+            border: none;
+            font-size: 2.5rem;
+            color: $color-breadcrumb-gray;
+            &:hover {
+              background-color: $color-white;
+            }
+            &.active {
+              color: $text-color-active;
+            }
+            @include respond(desktop) {
+              display: inline-block;
+            }
+            @include respond(large-desktop) {
+              display: inline-block;
+            }
+          }
+        }
+        .filter--choice {
+          z-index: 1;
+        }
+      }
+      //PRODUCT COLLECTION
+      .product__box {
+        .card {
+          box-shadow: none;
+          .card__body {
+            .card__detail {
+              .card__description {
+                display: none;
+              }
+            }
+          }
+        }
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+        @include respond(tablet) {
+          grid-template-columns: repeat(3, minmax(22rem, 1fr));
+        }
+        @include respond(desktop) {
+          grid-template-columns: repeat(4, minmax(25rem, 1fr));
+        }
+        @include respond(large-desktop) {
+          &.two {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          &.three {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          &.four {
+            grid-template-columns: repeat(4, minmax(21rem, 1fr));
+          }
+          &.five {
+            grid-template-columns: repeat(5, 1fr);
+          }
+          &.detail {
+            grid-template-columns: 1fr;
+            .card {
+              display: grid;
+              gap: 2rem;
+              grid-template-columns: 27rem 1fr;
+              .card__body {
+                display: grid;
+                grid-template-columns: 40rem 1fr;
+                .card__detail {
+                  @include flex(flex-start, normal, column);
+                  .card__description {
+                    display: inline-block;
+                    p {
+                      max-height: 12.5rem;
+                      overflow: hidden;
+                      white-space: nowrap;
+                      p {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .btn--box {
+        width: 100%;
+        margin: 3rem auto;
+        @include flex(center, center);
+        .btn--more {
+          width: 22.5rem;
+        }
+      }
+      //BUG: Why didn't work???
+      .none-item {
+        color: #c6452c;
+      }
+    }
+  }
+}

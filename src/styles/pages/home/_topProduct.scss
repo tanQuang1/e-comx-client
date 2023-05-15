@@ -1,0 +1,139 @@
+.home__collection {
+  background-color: #f8f8f8;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  gap: 1rem;
+  padding: 6rem 0 4rem 0;
+  .text {
+    flex: 2;
+    &-title {
+      color: $text-link-color;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    &-rank {
+      color: $border-color;
+    }
+    &-price {
+      margin-bottom: 2rem;
+      font-weight: bold;
+      color: $text-primary;
+    }
+
+    &-btn {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .product-collection {
+      .list-item {
+        span {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+  }
+  .collection {
+    &-aside {
+      position: relative;
+      .overlay {
+        visibility: hidden;
+        transition: all 0.5s linear;
+        @include position(absolute, 0, 0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.4);
+        height: 0%;
+        width: 50%;
+      }
+      &:hover {
+        .overlay {
+          visibility: visible;
+          opacity: 1;
+          z-index: 1000;
+          height: 100%;
+        }
+      }
+      background-color: $color-white;
+      display: none;
+      padding: 2rem;
+      @include respond(large-desktop) {
+        flex: 1;
+      }
+      @include respond(tablet) {
+        display: flex;
+        width: 100%;
+      }
+      &:hover {
+        box-shadow: 0.4rem 0.4rem 0.4rem $border-color;
+      }
+      .content {
+        &-left {
+          height: 27rem;
+          flex: 1;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          img {
+            object-fit: cover;
+          }
+        }
+        &-right {
+          flex: 1;
+          min-height: 30rem;
+        }
+      }
+    }
+    &-section {
+      width: 100%;
+      @include respond(large-desktop) {
+        flex: 1;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      .section--item {
+        position: relative;
+        background-color: $color-white;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        .overlay {
+          visibility: hidden;
+          transition: all 0.5s linear;
+          @include position(absolute, 0, 0, 0, 0);
+          background-color: rgba(255, 255, 255, 0.4);
+          height: 0%;
+          width: 40%;
+        }
+        &:hover {
+          transition: all 0.3s linear;
+          box-shadow: 0.4rem 0.4rem 0.4rem $border-color;
+        }
+        &:hover .overlay {
+          visibility: visible;
+          opacity: 1;
+          z-index: 1000;
+          height: 100%;
+        }
+        @include respond(large-mobile) {
+          width: calc(50% - 0.6rem);
+          min-width: 27rem;
+        }
+        &-img {
+          margin-right: 2rem;
+          flex: 1;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .text-title {
+          margin-top: 2rem;
+          margin-bottom: 0;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.accordion {
+  min-height: 65px;
+  width: 100%;
+  background-color: $color-white;
+
+  &__header {
+    height: 6rem;
+    padding: 0 2.5rem;
+    border: 0.1rem solid $border-color;
+    cursor: pointer;
+    @include flex(space-between, center);
+    p {
+      @include text(1.8rem, 500, $text-heading);
+      @include flex(space-between, center);
+    }
+    svg {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__panel {
+    border-top: none;
+    border-left: 0.1rem solid $border-color;
+    border-right: 0.1rem solid $border-color;
+    border-bottom: 0.1rem solid $border-color;
+    padding: 0 1.8rem;
+    height: 30rem;
+
+    @include text(1.4rem, 400, $text-panel, 1.6);
+    overflow: hidden;
+    display: none;
+    background-color: white;
+    padding: 2.5rem;
+    transition: all 0.2s linear;
+  }
+  &.open {
+    margin-bottom: 1.5rem;
+    .accordion__panel {
+      @include animation("fadeIn 0.3s ease-in ");
+      display: block;
+    }
+  }
+}
+
+@include keyframes(fadeIn) {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+  }
+
+  50% {
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(-4px);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+}

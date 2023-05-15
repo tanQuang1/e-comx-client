@@ -1,0 +1,193 @@
+.cart-modal {
+  width: 39rem;
+  height: 100%;
+  position: relative;
+  .cart-modal__header {
+    background-color: $color-white;
+    height: 5.5rem;
+    width: 100%;
+    @include flex(left, center);
+    @include position(absolute, 0, 0, null, null);
+    z-index: 10;
+    padding: 0 3rem;
+    .header__title {
+      @include text(1.6rem, 500, $text-primary);
+      position: relative;
+      width: 100%;
+      @include flex(left, center);
+      .header__number {
+        margin-left: 0.8rem;
+        @include flex(center, center);
+        @include box(2rem, 2rem);
+        border-radius: 50%;
+        @include text(1.2rem, 500, $color-black);
+        background-color: $badges-bg;
+      }
+    }
+    .header__close-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 3rem;
+    }
+  }
+  .cart-modal__inner {
+    height: 100%;
+    padding: 5.5rem 3rem 18rem;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .cart-empty {
+      margin: auto;
+      display: none;
+      img {
+        opacity: 0.1;
+        margin-bottom: 2rem;
+      }
+      &__title {
+        @include text(1.6rem, 500, $text-primary);
+        margin-bottom: 4rem;
+      }
+      &__link {
+        display: block;
+        margin: 0 auto;
+        width: 25rem;
+        @include animation('shake-horizontal 2.5s ease infinite');
+      }
+    }
+
+    .cart__list {
+      display: block;
+      overflow-y: auto;
+      .product-items {
+        width: 100%;
+        padding-bottom: 3rem;
+        padding-top: 1.5rem;
+        border-bottom: 1px solid $border-color;
+        padding-right: 1.5rem;
+        position: relative;
+        .icon-delete {
+          cursor: pointer;
+          color: $text-primary;
+          position: absolute;
+          top: 1.5rem;
+          right: 0;
+        }
+
+        @include flex();
+        .product__image {
+          margin-right: 1.5rem;
+          height: 8rem;
+          width: 8rem;
+          img {
+            object-fit: cover;
+          }
+        }
+
+        .product__detail {
+          flex: 1;
+
+          @include flex(space-between, flex-start, column);
+          .product__name {
+            width: 100%;
+            @include text(1.4rem, 500, $text-link-color);
+            margin-bottom: 0.5rem;
+          }
+          .product__quantity {
+            width: 100%;
+            @include flex();
+            .quantity {
+              flex: 1;
+              align-self: center;
+              &__number {
+                @include text(1.2rem, 500, $text-primary);
+                margin-right: 0.8rem;
+              }
+              &__price {
+                @include text(1.4rem, 500, $label-hot-color);
+              }
+            }
+            .input__quantity {
+              width: 10rem;
+            }
+          }
+        }
+      }
+    }
+    &.empty {
+      display: flex;
+      .cart__list {
+        display: none;
+      }
+      .cart-empty {
+        @include flex(center, center, column);
+      }
+    }
+  }
+
+  .cart__bottom-group {
+    background-color: $color-white;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    height: 18rem;
+    padding: 0 3rem;
+    width: 100%;
+    .total {
+      padding: 1.5rem 0;
+      border-top: 1px solid $border-color;
+      width: 100%;
+      @include flex(space-between, center);
+      &__text {
+        @include text(1.4rem, 400, $text-primary);
+      }
+      &__number {
+        @include text(1.8rem, 500, $text-primary);
+      }
+    }
+    .btn {
+      margin: 1rem 0;
+      height: 4.5rem;
+    }
+  }
+}
+
+@include keyframes(shake-horizontal) {
+  0% {
+    transform: translateX(10px);
+  }
+  10% {
+    transform: translateX(-10px);
+  }
+  20% {
+    transform: translateX(8px);
+  }
+  30% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  70% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+  90% {
+    transform: translateX(-6px);
+  }
+  100% {
+    transform: translateX(8px);
+  }
+}

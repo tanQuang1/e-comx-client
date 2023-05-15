@@ -1,0 +1,45 @@
+.infinity-slide {
+  background-color: transparent;
+  padding: 0 1.5rem;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto ;
+  &__heading {
+    @include flex(space-between, center);
+    border-bottom: 1px solid $border-color;
+    &--left {
+      padding-bottom: 1rem;
+      position: relative;
+      @include text(2.4rem, 400, $text-primary);
+      &:after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        bottom: -0.1rem;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 0.15rem;
+        background-color: $slide-heading-border-bg;
+      }
+    }
+    &--right {
+      padding-bottom: 1rem;
+
+      a {
+        @include text(1.4rem, 400, $color-gray);
+        transition: all 0.3s ease;
+      }
+      &:hover {
+        a {
+          color: $text-color-hover;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 1.5rem 0 7rem;
+  }
+}

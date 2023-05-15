@@ -1,0 +1,77 @@
+.textfield {
+  width: 100%;
+  position: relative;
+
+  &.inline {
+    .textfield__input {
+      &:focus-within {
+        input {
+          padding: 2rem 1rem 0.5rem;
+          &::placeholder {
+            opacity: 0;
+          }
+        }
+        .textfield__inline-label {
+          visibility: visible;
+          opacity: 1;
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+  &--small {
+    .textfield__input {
+      input {
+        padding: 1rem;
+      }
+    }
+  }
+  &--medium {
+    .textfield__input {
+      input {
+        padding: 1.5rem;
+      }
+    }
+  }
+  &__label {
+    z-index: 100;
+    @include flex(left, center);
+    margin-bottom: 0.5rem;
+    @include text(1.4rem, 400, $text-secondary);
+  }
+  &__inline-label {
+    transition: all 0.3s linear;
+    visibility: hidden;
+    opacity: 0;
+    @include text(1rem, 400, $text-secondary);
+    position: absolute;
+    top: 1.5rem;
+    left: 1rem;
+  }
+  &__required {
+    color: $label-hot-color;
+    margin-left: 0.4rem;
+  }
+  &__input {
+    position: relative;
+    width: 100%;
+    display: flex;
+    // outline: 1px solid $border-color;
+    input {
+      transition: all 0.2s linear;
+      flex: 1;
+      height: 100%;
+      outline: none;
+      border: none;
+      border-radius: 0.3rem;
+      &::placeholder {
+        opacity: 0.6;
+      }
+    }
+  }
+  &__error {
+    margin-top: 0.4rem;
+    margin-left: 0.4rem;
+    @include text(1.2rem, 400, $text-error);
+  }
+}

@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+html {
+  line-height: 1.6;
+  font-size: 62.5%;
+}
+body {
+  font-family: $rubik-font;
+}
+
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $rubik-font;
+}
+
+p {
+  font-family: $rubik-font;
+}
+button {
+  font-family: $rubik-font;
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

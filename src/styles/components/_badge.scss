@@ -1,0 +1,13 @@
+.badges {
+  @include flex(center, center);
+  @include box(2rem, 2rem);
+  border-radius: 50%;
+  @include position(absolute, -0.8rem, -0.8rem, null, null);
+  @include text(1.2rem, 500, $color-black);
+  background-color: $badges-bg;
+  &.sm {
+    @include box(1.5rem, 1.5rem);
+    @include text(1rem, 500, $color-black);
+    @include position(absolute, -0.5rem, -0.5rem, null, null);
+  }
+}

@@ -1,0 +1,157 @@
+.login {
+  padding: 2rem 4rem;
+  width: 300px;
+  max-height: 90vh;
+  transition: all 0.3s linear;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include respond(tablet) {
+    width: 400px;
+  }
+  @include respond(large-desktop) {
+    width: 500px;
+  }
+  &__close {
+    cursor: pointer;
+    font-size: 20px;
+    @include position(fixed, 15px, 15px, null, null);
+  }
+  &__title {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    .title {
+      font-size: 1.6rem;
+      line-height: 45px;
+      width: 50%;
+      color: $color-black;
+      cursor: pointer;
+      position: relative;
+      &::before {
+        @include position(absolute, null, null, 0, 0);
+        transition: all 0.3s linear;
+        content: '';
+        display: block;
+        width: 100%;
+        background-color: $border-color;
+        height: 0.2rem;
+        z-index: -1;
+      }
+      &::after {
+        transition: all 0.3s linear;
+        content: '';
+        display: block;
+        @include position(absolute, null, null, 0, 0);
+        width: 0%;
+        background-color: $slide-heading-border-bg;
+        height: 0.2rem;
+        z-index: 10;
+      }
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    .title.active::after {
+      width: 100%;
+    }
+  }
+  &__body {
+    overflow-y: auto;
+    .form {
+      .form__textField {
+        margin: 1.8rem 0px;
+        position: relative;
+        margin-bottom: 2rem;
+
+        .textfield {
+          input {
+            color: $color-gray;
+          }
+        }
+      }
+      .form__error {
+        color: $text-error;
+        position: absolute;
+        bottom: -15px;
+        left: 0px;
+      }
+    }
+    .body__or {
+      position: relative;
+      text-align: center;
+      height: 30px;
+      margin: 5px 0;
+      &::before {
+        content: '';
+        border-top: 1px solid #ebebeb;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        display: flex;
+      }
+      span {
+        display: inline-block;
+        background: #fff;
+        padding: 0 1.5rem;
+        position: relative;
+        color: #999;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+    .body__check {
+      @include flex(space-between, center, null);
+      @include text(1.4rem, 400, $button-icon-text);
+      margin-bottom: 2rem;
+      .check__box {
+        position: relative;
+        padding-left: 2.5rem;
+        input {
+          @include position(absolute, 50%, null, null, 0);
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+        label {
+          cursor: pointer;
+        }
+      }
+      a {
+        color: $color-black;
+        transition: all 0.3s linear;
+        &:hover {
+          color: $text-color-hover;
+        }
+      }
+    }
+    .body__button {
+      margin-top: 1rem;
+    }
+    .body__register {
+      margin-bottom: 1rem;
+    }
+  }
+  &__button {
+    margin-top: 20px;
+    p {
+      color: $text-secondary;
+      text-align: center;
+      font-size: 1.4rem;
+      a {
+        color: $color-black;
+        padding: 0px 3px;
+        transition: all 0.3s linear;
+        &:hover {
+          color: $text-color-hover;
+        }
+      }
+    }
+  }
+}

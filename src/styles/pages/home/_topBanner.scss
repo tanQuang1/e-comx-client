@@ -1,0 +1,121 @@
+.top-banner {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+  .advertiseTop {
+    padding: 0 1.5rem 0 1.5rem;
+    display: flex;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+
+    &-card {
+      align-items: center;
+      text-align: center;
+      margin: 2rem 0 2rem 0;
+      width: 50%;
+      height: 6.7rem;
+      @include respond(large-mobile) {
+        display: flex;
+        justify-content: center;
+        text-align: start;
+      }
+      @include respond(large-desktop) {
+        width: 25%;
+      }
+
+      &__icon {
+        margin-right: 2rem;
+        padding: 0 0.75rem 0 0.75rem;
+        svg {
+          color: $text-color-active;
+        }
+      }
+
+      &__content {
+        h3 {
+          @include text(1.3rem, 450, $color-black);
+        }
+        p {
+          @include text(1.3rem, 400, $text-panel);
+          min-width: 18rem;
+        }
+      }
+    }
+  }
+
+  .advertiseBottom {
+    width: 100%;
+    padding: 0 1.5rem 0 1.5rem;
+    margin-bottom: 4rem;
+    display: flex;
+    gap: 1.4rem;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    @include respond(large-desktop) {
+      gap: 2.8rem;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-card {
+      position: relative;
+      .overlay::after,
+      .overlay::before {
+        content: '';
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        @include position(absolute, 0, 0, 0, 0);
+        transition: all 0.5s linear;
+        background-color: rgba(255, 255, 255, 0.4);
+        width: 100%;
+        height: 100%;
+        margin: auto;
+      }
+      &:hover .overlay::after {
+        height: 0;
+        visibility: visible;
+        opacity: 1;
+        z-index: 1000;
+      }
+      &:hover .overlay::before {
+        width: 0;
+        visibility: visible;
+        opacity: 1;
+        z-index: 1000;
+      }
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 0.3rem;
+      color: $color-white;
+      line-height: 3rem;
+      display: flex;
+      align-items: center;
+      padding: 1rem 4rem 1rem 4rem;
+      width: 100%;
+      height: 20rem;
+      min-width: calc(100vw - 2.8rem);
+      @include respond(tablet) {
+        width: 50%;
+        min-width: calc(50vw - 2rem);
+      }
+      @include respond(large-desktop) {
+        min-width: calc(30vh);
+      }
+
+      &__content {
+        h3 {
+          font-weight: 400;
+          font-size: 2.4rem;
+          margin-bottom: 1.5rem;
+        }
+        div {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

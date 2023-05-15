@@ -1,0 +1,26 @@
+.footerMobile {
+  display: block;
+  @include respond(tablet) {
+    display: none;
+  }
+  .accordion {
+    background-color: #1f2024;
+    &__header {
+      background-color: #292b2f;
+      border: none;
+      height: 5rem;
+      padding: 0 1.5rem;
+      p,
+      svg {
+        @include text(1.6rem, 500, $color-white);
+      }
+    }
+    &__panel {
+      color: $text-footer;
+      background-color: #292b2f;
+      padding: 1.5rem;
+      border: none;
+      height: auto;
+    }
+  }
+}

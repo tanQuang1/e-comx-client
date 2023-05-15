@@ -1,0 +1,29 @@
+.components {
+  margin: 5rem 0;
+  .heading {
+    font-size: 3.2rem;
+  }
+  &__items {
+    border-bottom: 1px solid gray;
+    padding: 3.6rem 2.2rem;
+    .title {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      @include grid(repeat(2, 1fr), auto, 1.5rem);
+      @include respond(tablet) {
+        @include grid(repeat(3, 1fr), auto, 1.5rem);
+      }
+      @include respond(desktop) {
+        @include grid(repeat(5, 1fr), auto, 1.5rem);
+      }
+    }
+
+    .barges {
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+    }
+  }
+}

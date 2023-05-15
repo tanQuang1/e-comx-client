@@ -1,0 +1,48 @@
+@import './home/topProduct';
+@import './home/bottomBanner';
+@import './home/middleBanner';
+@import './home/topBanner';
+.infinitySlide-swiper {
+  .swiper {
+    &:hover &-button-prev {
+      visibility: visible;
+    }
+    &-button-prev,
+    &-button-next {
+      visibility: hidden;
+      width: 5rem;
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: gray;
+      color: white;
+      transition: 0.3s;
+      &::after {
+        font-size: 1rem;
+      }
+      &:hover {
+        background-color: #fcbe00;
+        color: black;
+      }
+    }
+  }
+}
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+  visibility: visible;
+}
+.card__description {
+  display: none;
+}
+
+.star {
+  @include text(1.4rem, 500, $star-color);
+}
+
+.logo-list {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card {
+  box-shadow: none;
+}

@@ -1,0 +1,114 @@
+.loading {
+  background-color: $loading-background;
+  z-index: 9999;
+  @include position(fixed, 0, 0, 0, 0);
+  &.absolute {
+    background-color: transparent;
+    @include position(absolute, 0, 0, 0, 0);
+  }
+  &.none {
+    background-color: transparent;
+    position: relative;
+  }
+  &__circle {
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 0.3rem solid $loading-circle;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 15rem;
+    font-family: sans-serif;
+    text-shadow: 0 0 1rem $text-primary-hover;
+    @include position(absolute, 50%, 0, 0, 50%);
+    @include box(4rem, 4rem);
+
+    &:before {
+      content: '';
+      border: 0.1rem solid transparent;
+      border-top: 0.3rem solid $text-primary-hover;
+      border-right: 0.3rem solid $text-primary-hover;
+      border-radius: 50%;
+      @include animation('animate-circle 0.5s linear infinite');
+      @include position(absolute, -0.3rem, 0, 0, -0.3rem);
+      @include box(100%, 100%);
+    }
+    &--container {
+      display: block;
+      background: transparent;
+      transform-origin: left;
+      @include animation('animate 1s linear infinite');
+      @include position(absolute, calc(50% - 0.2rem), 0, 0, 50%);
+    }
+
+    &.sm {
+      @include box(1.4rem, 1.4rem);
+    }
+  }
+}
+
+@include keyframes(animate-circle) {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@include keyframes(animate) {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/////////////////////////
+/// LOADING BAR
+///
+.loading__bar {
+  @include flex(space-between, center);
+  flex-flow: row nowrap;
+  width: 4em;
+
+  &--item {
+    width: 0.3em;
+    height: 1em;
+    border-radius: 2px;
+    background-color: #999;
+
+    &:nth-of-type(1) {
+      animation: grow 1s -0.45s ease-in-out infinite;
+    }
+    &:nth-of-type(2) {
+      animation: grow 1s -0.3s ease-in-out infinite;
+    }
+
+    &:nth-of-type(3) {
+      animation: grow 1s -0.15s ease-in-out infinite;
+    }
+
+    &:nth-of-type(4) {
+      animation: grow 1s ease-in-out infinite;
+    }
+    &:nth-of-type(5) {
+      animation: grow 1s 0.15s ease-in-out infinite;
+    }
+    &:nth-of-type(6) {
+      animation: grow 1s 0.3s ease-in-out infinite;
+    }
+    &:nth-of-type(7) {
+      animation: grow 1s 0.45s ease-in-out infinite;
+    }
+  }
+}
+@keyframes grow {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(2.5);
+  }
+}

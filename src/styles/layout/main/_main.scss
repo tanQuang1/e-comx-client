@@ -1,0 +1,13 @@
+main {
+  margin: 0 auto;
+  width: $width-full;
+  min-height: 100vh;
+  grid-area: main-content;
+  position: relative;
+  border-top: 0.05px solid $header-border;
+  // overflow-x: hidden;
+  @include respond(large-desktop) {
+    border-top: none;
+  }
+  @include flex(normal, normal, column);
+}

@@ -1,0 +1,204 @@
+@import './mobile';
+.footer {
+  grid-area: footer;
+  background-color: #1f2024;
+  padding: 3rem 1.5rem 8rem;
+  height: auto;
+  position: relative;
+  @include respond(tablet) {
+    padding: 0 0 8rem;
+  }
+  /*Desktop*/
+  .footerDes {
+    p {
+      @include text(1.4rem, 400, $text-footer, 24px);
+    }
+    @include respond(tablet) {
+      display: block;
+    }
+    margin: 0;
+    display: none;
+    @include text(1rem, 400, white);
+    .text-description {
+      color: $text-footer;
+      font-size: 1.4rem;
+    }
+    &__top {
+      width: $width-full;
+      justify-content: flex-start;
+      padding: 4rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #2f3037;
+      @include respond(large-desktop) {
+        justify-content: space-around;
+      }
+      &--items {
+        padding: 1.5rem;
+        @include respond(tablet) {
+          display: block;
+
+          @include box(45%, auto);
+        }
+        @include respond(large-desktop) {
+          @include box(24%, null);
+          padding: 0;
+        }
+        span {
+          @include text(1.8rem, 500, white);
+        }
+        .content {
+          margin-top: 2.5rem;
+        }
+      }
+    }
+    .set__center--main {
+      @include flex(center);
+    }
+    &__main {
+      @include box(100%, auto);
+      @include grid(repeat(2, 1fr), auto);
+
+      @include respond(large-desktop) {
+        @include grid(repeat(5, 1fr), auto);
+      }
+      margin: 0 1.5rem 0 1.5rem;
+      padding: 6rem 0 6rem 0;
+      @include respond(large-desktop) {
+        max-width: 140rem;
+        border-bottom: 0.1px solid rgb(66, 64, 64);
+        margin-bottom: 2rem;
+      }
+      & h3 {
+        padding-bottom: 1.5rem;
+        @include text(1.8rem, 500, $button-text-white);
+      }
+      &--sectionItems {
+        @include respond(tablet) {
+          padding-bottom: 4rem;
+          display: block;
+          @include box(50%, auto);
+        }
+        @include respond(large-desktop) {
+          width: 100%;
+        }
+      }
+      &--aside {
+        @include respond(tablet) {
+          @include box(100%, auto);
+        }
+        @include respond(large-desktop) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  //Style with Mobile and Desktop
+  &__note {
+    &--payPal {
+      @include flex(center);
+      img {
+        display: none;
+        @include respond(tablet) {
+          display: block;
+          @include box(32.5rem, auto);
+        }
+      }
+    }
+    &--copyRight {
+      text-align: center;
+      padding: 3rem 0 3rem 0;
+      & h3 {
+        @include text(1.4rem, 400, $text-footer);
+        a {
+          @include text(1.4rem, 400, $slide-heading-border-bg);
+        }
+      }
+    }
+  }
+  li {
+    cursor: pointer;
+    list-style: none;
+    @include text(1.4rem, 400, $text-footer, 3.5rem);
+    transition: all 0.3s;
+    &:hover {
+      margin-left: 1rem;
+      color: $slide-heading-border-bg;
+    }
+  }
+  .content--bottom {
+    padding: 0 1.5rem 1.5rem 0;
+    margin-top: 1.5rem;
+    img {
+      border: 1.5px solid $text-footer;
+      margin-right: 0.5rem;
+      border-radius: 0.3rem;
+    }
+    ul {
+      display: inline-flex;
+      li {
+        margin: 0 1rem 0 0;
+        a {
+          display: block;
+          border-radius: 3px;
+          text-align: center;
+          @include text(1.6rem, 400, $button-bg-white, 4.5rem);
+          @include box(4.5rem, 4.5rem);
+        }
+      }
+    }
+    &.subscribe--input {
+      @include respond(tablet) {
+        @include flex(flex-start, centers);
+        .input--item {
+          flex: 1;
+          margin-right: 0.8rem;
+          input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            padding: 1.6rem;
+          }
+        }
+
+        .button--item {
+          width: 12.5rem;
+          .btn {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+      .input--item {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .phone {
+    & svg {
+      color: $slide-heading-border-bg;
+      margin-right: 0.4rem;
+    }
+    & span a {
+      @include text(2.4rem, 400, $slide-heading-border-bg);
+    }
+    display: flex;
+    margin: 4rem 0 1rem;
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .quick-links {
+    a {
+      display: flex;
+      flex-direction: column;
+      @include text(1.4rem, 400, $text-footer, 3.5rem);
+      &:hover {
+        transition: 0.3s;
+        margin-left: 1rem;
+        color: $slide-heading-border-bg;
+      }
+    }
+  }
+}

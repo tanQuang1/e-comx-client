@@ -1,0 +1,10 @@
+.header__logo {
+  @include flex(center, center);
+  line-height: 1;
+  padding: 1rem 0.75rem;
+  @include respond(large-desktop) {
+    // width: 30rem;
+    @include flex(left, center);
+    padding: 0 1.5rem;
+  }
+}

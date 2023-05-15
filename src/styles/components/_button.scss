@@ -1,0 +1,74 @@
+.btn {
+  @include text(1.3rem, 500, $text-primary);
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0 1.5rem;
+  @include flex(space-around, center);
+  border: 0 solid $border-color;
+  border-radius: 0.3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: background-color 0.3s linear;
+  cursor: pointer;
+  background-color: $button-primary-bg;
+  &:hover {
+    background-color: $button-primary-bg-hover;
+  }
+
+  &--secondary {
+    background-color: $button-bg-white;
+    border-width: 0.1rem;
+  }
+  &--tertiary {
+    background-color: $button-bg-white;
+    border-width: 0.1rem;
+
+    &:hover {
+      color: $button-text-primary;
+      background-color: $button-tertiary-bg-hover;
+    }
+  }
+  &--quaternary {
+    color: $button-text-white;
+    background-color: $button-quaternary-bg;
+  }
+  &--quinary {
+    color: $button-text-white;
+    background-color: $button-quinary-bg;
+    &--active {
+      background-color: $button-text-primary;
+    }
+  }
+  &--outlined {
+    color: $button-text-outlined;
+    border: 1px solid #ebebeb;
+    &:hover {
+      color: $button-text-primary;
+    }
+  }
+  &--icon {
+    width: 4rem;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+  }
+  &:disabled {
+    @include text(1.4rem, 500, $button-text-white, 4rem);
+    background-color: rgba($color: #505050, $alpha: 0.5);
+    cursor: not-allowed;
+  }
+
+  &--lg {
+    height: 5rem;
+    line-height: 4rem;
+    padding: 0 3rem;
+  }
+  &--sm {
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0;
+  }
+}

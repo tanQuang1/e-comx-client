@@ -1,0 +1,19 @@
+.textarea {
+  width: 100%;
+
+  &__label {
+    z-index: 100;
+    @include flex(left, center);
+    margin-bottom: 0.5rem;
+    @include text(1.4rem, 400, $text-secondary);
+  }
+  &__required {
+    color: $label-hot-color;
+    margin-left: 0.4rem;
+  }
+  &__error {
+    margin-top: 0.4rem;
+    margin-left: 0.4rem;
+    @include text(1.2rem, 400, $text-error);
+  }
+}

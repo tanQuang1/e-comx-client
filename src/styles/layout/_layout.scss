@@ -1,0 +1,24 @@
+@import './header/header';
+@import './main/main';
+@import './footer/footer';
+@import './sticky/sticky';
+@import './slide/infinity-slide';
+@import './slide/ads-slice';
+@import './modals/auth';
+@import './modals/productDetail';
+@import './modals/cart';
+
+.app {
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: auto;
+  margin: 0 auto;
+  width: $width-full;
+  @include grid(100%, auto);
+  grid-template-areas: 'header' 'slide' 'main-content' 'footer';
+  position: relative;
+}
+
+.slice {
+  grid-area: slice;
+}
